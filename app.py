@@ -4,12 +4,7 @@ import os
 from werkzeug.exceptions import HTTPException
 
 from dotenv import load_dotenv
-from flask import Flask
-from flask import jsonify
-from flask import redirect
-from flask import render_template
-from flask import session
-from flask import url_for
+from flask import Flask, jsonify, redirect, render_template, session, url_for
 from authlib.flask.client import OAuth
 from six.moves.urllib.parse import urlencode
 
@@ -103,6 +98,7 @@ def dashboard():
     return render_template('dashboard.html',
                            userinfo=session[constants.PROFILE_KEY],
                            userinfo_pretty=json.dumps(session[constants.JWT_PAYLOAD], indent=4))
+
 
 if __name__ == "__main__":
     app.run(debug=True)
