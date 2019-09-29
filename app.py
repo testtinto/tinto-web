@@ -154,7 +154,7 @@ def requires_auth(f):
 @app.route('/api')
 @requires_auth
 def api():
-    return jsonify({"hello": "world"})
+    return jsonify({"hello": "world", "scope": requires_scope("read:stuff")})
 
 
 if __name__ == "__main__":
